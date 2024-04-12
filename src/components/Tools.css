@@ -1,0 +1,74 @@
+.tools{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#uploader{
+    display: none;  
+}
+
+.file__load{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: white;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+
+    padding: 4px 13px 4px 13px;
+    margin: 16px;
+}
+
+.file__load>svg{
+    margin-right: 4px;
+    font-size: 20px;
+}
+
+.file__load:hover{
+    background-color: black;
+    color: white;
+}
+
+.tools__main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 22px;
+}
+
+.tools__main.disabled{
+    pointer-events: none;
+    opacity: .5;
+}
+
+p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0px;
+}
+
+.unchecked {
+    pointer-events: none;
+    opacity: .5;
+}
+
+button{
+    cursor: pointer;
+}
+
+#button__save{
+    display: none;
+}
+
+@media only screen and (max-width: 740px) {
+    .tools__main{
+        width: fit-content;
+        padding: 0px;
+        margin: 10px;
+    }
+}

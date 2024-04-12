@@ -1,0 +1,9 @@
+.main__edit{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.MuiFormControl-root.edit__box{
+    margin-top: 20px;
+}

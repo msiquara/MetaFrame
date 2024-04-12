@@ -1,0 +1,24 @@
+.date__main{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.tools__date{
+    display: flex;
+}
+
+.date__style{
+    display: flex;
+}
+
+.form__main{
+    width: 100%;
+}
+
+#form__date{
+    padding: 4px 1px 4px 11px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(128, 128, 128, 0.514);
+    border-radius: 10px;
+}

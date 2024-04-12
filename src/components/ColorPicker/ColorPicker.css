@@ -1,0 +1,32 @@
+.color__main{
+    width: 100%;
+}
+
+.color__picker{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    align-items: end;
+}
+
+.color__box{
+    border: 0px;
+}
+
+.color__button{
+    width: 3.3dvh;
+    height: 3.3dvh;
+    cursor: default;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #90caf9;;
+    padding: 10px;
+}
+
+.color__button:hover{
+    pointer-events: none;
+}
+
+#txtbutton{
+    background-color: black;
+}

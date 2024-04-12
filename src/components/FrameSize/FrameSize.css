@@ -1,0 +1,24 @@
+.frame__size{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.form__frame.MuiFormControlLabel-root{
+    display: flex;
+    align-items: start;
+    color: white;
+    margin-top: 2px;
+}
+
+.MuiTypography-root{
+    color: #e0e0e0;
+}
+
+.MuiInput-root.display_none {
+    display: none;
+}
+
+.frame__slider{
+    margin-top: 24px;
+}

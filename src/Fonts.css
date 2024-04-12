@@ -1,0 +1,66 @@
+/*
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Courier+Prime:wght@400;700&family=Lato:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Cormorant');
+*/
+
+@font-face {
+    font-family:'CormorantBold';
+    src: url("assets/fonts/Cormorant/CormorantInfant-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family:'Cormorant';
+    src: url("assets/fonts/Cormorant/CormorantInfant-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family:'CourierBold';
+    src: url("assets/fonts/Courier_Prime/CourierPrime-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family:'Courier';
+    src: url("assets/fonts/Courier_Prime/CourierPrime-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family:'LatoBold';
+    src: url("assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family:'Lato';
+    src: url("assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+    font-family:'ErikasBueroBold';
+    src: url("assets/fonts/ErikasBuero/ErikasBueroBold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family:'ErikasBuero';
+    src: url("assets/fonts/ErikasBuero/ErikasBuero.ttf") format("truetype");
+}
+
+@font-face {
+    font-family:'MinimalBold';
+    src: url("assets/fonts/Minimal_Mono/minimal-mono-bold-webfont.woff2") format("woff2");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family:'Minimal';
+    src: url("assets/fonts/Minimal_Mono/minimal-mono-regular-webfont.woff2") format("woff2");
+
+}
+
+@font-face {
+    font-family:'digital7';
+    src: url("assets/fonts/digital_7/digital-7-mono-italic.ttf") format("truetype");
+}
