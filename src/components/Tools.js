@@ -5,13 +5,14 @@ import Date from "./Date/Date"
 import EditData from "./EditData/EditData"
 import "@melloware/coloris/dist/coloris.css"
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import AspectRatio from './AspectRatio/AspectRatio'
 import FrameSize from './FrameSize/FrameSize'
 import ColorPicker from './ColorPicker/ColorPicker'
 import SelectFont from './SelectFont/SelectFont'
 import {FileUpload} from '@mui/icons-material'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
-function Tools({createImage, increaseBorder, editorData, slider, meta_data, changeFrameColor, changeTxtColor, changeFont, boldFont,
+function Tools({createImage, increaseBorder, changeAspectRatio, editorData, slider, meta_data, changeFrameColor, changeTxtColor, changeFont, boldFont,
                 addCamModel, modelPosition, addDate, dateStyle, saveImage}){
     const darkTheme = createTheme({
         palette: {
@@ -32,6 +33,10 @@ function Tools({createImage, increaseBorder, editorData, slider, meta_data, chan
                     <FrameSize
                         increaseBorder={increaseBorder}
                         slider={slider}
+                    />
+
+                    <AspectRatio
+                        changeAspectRatio={changeAspectRatio}
                     />
 
                     <EditData

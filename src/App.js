@@ -9,6 +9,7 @@ let img = new Image()
 let ratio = 0
 let canvas 
 let border 
+let a_ratio
 let font_size
 let fcolor = "white"
 let txtcolor = "black"
@@ -34,12 +35,12 @@ let tags_list = {
 
 function App() {
     let [slider, setSlider] = useState({
-        min: 5,
-        max: 15,
+        min: 4,
+        max: 14,
         step: 2,
-        value: 5
+        value: 4
     })
-    //meta_data/mdata to show info on placeholder's input in tools(focal_length, f/#)
+    //meta_data/mdata to show info in placeholder's input in tools(focal_length, f/#)
     let mdata = {
         focal_length: 0,
         f_number: 0,
@@ -106,6 +107,7 @@ function App() {
             //setSlider(slider)
             border = slider.value*img.width/100
             ratio = img.height/img.width
+            font_size = Math.floor(border/4)
             updateBorder()
             canvas.style.maxWidth = `calc(95vh*(${cwidth/cheight})`
         }
@@ -118,7 +120,7 @@ function App() {
 
     function updateBorder(){
         let ctx = canvas.getContext('2d', {alpha: false})  
-        font_size = Math.floor(ratio*border/3)
+        //font_size = Math.floor(border/4)
         cwidth = canvas.width = img.width + border*2
         cheight = canvas.height = img.height + ratio*border*2
         left_corner[0] = border
@@ -174,7 +176,8 @@ function App() {
                 ctx.fillText(model_text, top_corner[0], top_corner[1])
                 ctx.fillText(data_text, left_corner[0], left_corner[1])
                 break
-        } 
+            default:
+        }
     }
 
     function updateDate(){
@@ -210,18 +213,35 @@ function App() {
         }
     }
 
-    const increaseBorder = (e, value) => {
-        border = value*img.width/100
+    const increaseBorder = (e, value) => {        
+        //always change the ratio when square and font_size when original
         slider.value = value
-        setSlider(slider)
-        updateBorder()                    
+        changeAspectRatio(a_ratio)
+        setSlider(slider)                 
     }     
+
+    function changeAspectRatio(value){
+        a_ratio = value
+
+        if (a_ratio == 'square'){
+            console.log(img.width, img.height, border)
+            border = slider.value*img.width/220
+            ratio = (img.width+2*border-img.height) / (2*border)
+            font_size = 110*(1.0 + (slider.value - 4)/22)
+        } else {
+            border = slider.value*img.width/100
+            ratio = img.height/img.width
+            font_size = Math.floor(border/4)
+        }
+
+        updateBorder()
+    }
 
     function saveImage(){
         let canvasURL = canvas.toDataURL('image/jpeg')
         let link = document.createElement('a')
         link.href = canvasURL
-        link.download = 'new_border_image.jpg'
+        link.download = 'new_metaframe.jpg'
         link.click()
         link.remove()
     }
@@ -298,6 +318,7 @@ function App() {
             <Tools
                 createImage = {createImage}
                 increaseBorder = {increaseBorder}
+                changeAspectRatio={changeAspectRatio}
                 editorData = {editorData}
                 slider = {slider}
                 meta_data = {meta_data}

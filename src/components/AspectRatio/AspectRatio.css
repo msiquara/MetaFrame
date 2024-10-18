@@ -1,0 +1,19 @@
+.aspect__main{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#aspect_label{
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    font-size: .8rem;
+    padding-bottom: 8px;
+}
+
+#form__aspect{
+    padding: 4px 1px 4px 11px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(128, 128, 128, 0.514);
+    border-radius: 10px;
+}

@@ -1,18 +1,23 @@
 .App {
     display: flex;
+    flex-direction: row;
     background-color: black;
+    justify-content: space-between;
 }
 
-.App__main{
+.App__main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    width:  75dvw;
 }
 
 canvas {
     display: flex;
-    width: 70dvw;
-    max-height: 95vh;  
+    height: 55dvw;
+    max-height: 95dvh;
+    max-width: 55dvw;
     border-width: 4px;
     border-style: double;
     border-color: white;
@@ -23,13 +28,14 @@ input{
     cursor: pointer;
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 930px) {
     .App {
         flex-direction: column;
         align-items: center;
+        height: 100dvh;
     }
 
-    .App__main{
+    .App__main {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -37,8 +43,9 @@ input{
 
     canvas {
         display: flex;
-        width: 93dvw;
-        max-height: 95vh;  
+        max-height: 65vh;  
+        height: 62dvw;
+        max-width: 95dvw;
         border-width: 4px;
         border-style: double;
         border-color: white;
