@@ -7,10 +7,12 @@
     flex-direction: row;
     margin-top: 20px;
     align-items: end;
+    justify-content: space-between;
 }
 
 .color__box{
     border: 0px;
+    width: 100dvw;
 }
 
 .color__button{

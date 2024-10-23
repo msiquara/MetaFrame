@@ -4,6 +4,7 @@
     align-items: center;
     overflow: scroll;
     height: 100dvh;
+    width: 50dvw;
 }
 
 #uploader{
@@ -42,6 +43,7 @@
     align-items: center;
     flex-direction: column;
     padding: 22px;
+    width: 60%;
 }
 
 .tools__main.disabled{
@@ -67,9 +69,12 @@ button{
     display: none;
 }
 
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 930px) {
+    .tools{
+        width: 100dvw;
+    }
     .tools__main{
-        width: fit-content;
+        width: 50dvw;
         padding: 0px;
         margin: 10px;
     }

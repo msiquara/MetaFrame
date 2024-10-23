@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:  75dvw;
+    width: 75dvw;
 }
 
 canvas {
@@ -39,16 +39,17 @@ input{
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-height: 60dvh;
+        max-width: 95dvw;
+        width: 95dvw;
     }
 
     canvas {
         display: flex;
-        max-height: 65vh;  
-        height: 62dvw;
+        max-height: 50dvh;  
         max-width: 95dvw;
         border-width: 4px;
         border-style: double;
         border-color: white;
-        margin: 10px;
     }
 }
