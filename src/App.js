@@ -109,7 +109,7 @@ function App() {
             ratio = img.height/img.width
             font_size = Math.floor(border/4)
             updateBorder()
-            canvas.style.maxWidth = `calc(95vh*(${cwidth/cheight})`
+            //canvas.style.maxWidth = `calc(95vh*(${cwidth/cheight})`
         }
         
         document.getElementById('focal_length').value = ''
@@ -227,7 +227,8 @@ function App() {
             console.log(img.width, img.height, border)
             border = slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
-            font_size = 110*(1.0 + (slider.value - 4)/22)
+            font_size = (1+(slider.value/100))*border
+            console.log(slider.value)
         } else {
             border = slider.value*img.width/100
             ratio = img.height/img.width
