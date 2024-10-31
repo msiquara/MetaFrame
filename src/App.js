@@ -5,11 +5,13 @@ import Tools from "./components/Tools"
 import { useState } from "react"
 
 let img = new Image()
-//let tags_list = []
+let img_pos_x
+let img_pos_y
 let ratio = 0
 let canvas 
 let border 
 let a_ratio
+let orientation
 let font_size
 let fcolor = "white"
 let txtcolor = "black"
@@ -105,9 +107,13 @@ function App() {
 
         img.onload = function(){
             //setSlider(slider)
+            img.width >= img.height ? orientation = 'landscape': orientation = 'portrait'
+            console.log(orientation)
             border = slider.value*img.width/100
             ratio = img.height/img.width
             font_size = Math.floor(border/4)
+            img_pos_x = border
+            img_pos_y = border*ratio
             updateBorder()
             //canvas.style.maxWidth = `calc(95vh*(${cwidth/cheight})`
         }
@@ -120,21 +126,20 @@ function App() {
 
     function updateBorder(){
         let ctx = canvas.getContext('2d', {alpha: false})  
-        //font_size = Math.floor(border/4)
-        cwidth = canvas.width = img.width + border*2
-        cheight = canvas.height = img.height + ratio*border*2
-        left_corner[0] = border
-        left_corner[1] = cheight - ratio*border/2 + font_size/2      
+        cwidth = canvas.width = img.width + img_pos_x*2
+        cheight = canvas.height = img.height + img_pos_y*2
+        left_corner[0] = img_pos_x
+        left_corner[1] = cheight - img_pos_y/2 + font_size/2.5      
         right_corner[1] = left_corner[1]
-        top_corner[0] = border
-        top_corner[1] = ratio*border/2 + font_size/2
+        top_corner[0] = img_pos_x
+        top_corner[1] = img_pos_y/2 + font_size/2.5
         ctx.fillStyle = fcolor
         ctx.fillRect(0, 0, canvas.width, canvas.height)
         ctx.fillStyle = txtcolor
         ctx.font = `${font_size}px ${font}`
         console.log(`${font_size}px ${font}`)
         updateDataPosition()
-        ctx.drawImage(img, border, ratio*border)
+        ctx.drawImage(img, img_pos_x, img_pos_y)
         updateDate()        
     }
 
@@ -162,13 +167,13 @@ function App() {
         switch(model_position){
             case 'left':    
                 let txt_dimension = ctx.measureText(data_text).width
-                right_corner[0] = cwidth - border - txt_dimension    
+                right_corner[0] = cwidth - img_pos_x - txt_dimension    
                 ctx.fillText(model_text, left_corner[0], left_corner[1])
                 ctx.fillText(data_text, right_corner[0], right_corner[1])   
                 break
             case 'right':
                 let model_dimension = ctx.measureText(model_text).width
-                right_corner[0] = cwidth - border - model_dimension
+                right_corner[0] = cwidth - img_pos_x - model_dimension
                 ctx.fillText(data_text, left_corner[0], left_corner[1])
                 ctx.fillText(model_text, right_corner[0], right_corner[1])
                 break
@@ -202,8 +207,8 @@ function App() {
             let ctx = canvas.getContext('2d', {alpha: false})
             ctx.font = `${font_size}px digital7`  
             let date_dimension = ctx.measureText(date).width
-            date_corner[0] = cwidth - border - font_size - date_dimension 
-            date_corner[1] = cheight - ratio*border - font_size
+            date_corner[0] = cwidth - img_pos_x - font_size - date_dimension 
+            date_corner[1] = cheight - img_pos_y - font_size
             ctx.fillStyle = "rgb(235 180 0/ 70%)"
             ctx.shadowColor = "rgb(207 81 5)"
             ctx.shadowOffsetX = 1
@@ -224,15 +229,25 @@ function App() {
         a_ratio = value
 
         if (a_ratio == 'square'){
-            console.log(img.width, img.height, border)
             border = slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
             font_size = (1+(slider.value/100))*border
-            console.log(slider.value)
+            img_pos_x = border
+            img_pos_y = border*ratio
+
+            if (orientation == 'portrait'){
+                border = slider.value*img.height/200
+                ratio = (img.height+2*border-img.width) / (2*border)
+                font_size = (0.7+(slider.value/100))*border
+                img_pos_x = border*ratio
+                img_pos_y = border
+            } 
         } else {
             border = slider.value*img.width/100
             ratio = img.height/img.width
             font_size = Math.floor(border/4)
+            img_pos_x = border
+            img_pos_y = border*ratio
         }
 
         updateBorder()
