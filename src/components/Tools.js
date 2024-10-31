@@ -9,11 +9,12 @@ import AspectRatio from './AspectRatio/AspectRatio'
 import FrameSize from './FrameSize/FrameSize'
 import ColorPicker from './ColorPicker/ColorPicker'
 import SelectFont from './SelectFont/SelectFont'
+import FontSize from './FontSize/FontSize'
 import {FileUpload} from '@mui/icons-material'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
-function Tools({createImage, increaseBorder, changeAspectRatio, editorData, slider, meta_data, changeFrameColor, changeTxtColor, changeFont, boldFont,
-                addCamModel, modelPosition, addDate, dateStyle, saveImage}){
+function Tools({createImage, increaseBorder, changeAspectRatio, editorData, border_slider, meta_data, changeFrameColor, changeTxtColor, changeFont, boldFont,
+                increaseFont, font_slider, addCamModel, modelPosition, addDate, dateStyle, saveImage}){
     const darkTheme = createTheme({
         palette: {
             mode: 'dark',
@@ -32,7 +33,7 @@ function Tools({createImage, increaseBorder, changeAspectRatio, editorData, slid
 
                     <FrameSize
                         increaseBorder={increaseBorder}
-                        slider={slider}
+                        border_slider={border_slider}
                     />
 
                     <AspectRatio
@@ -52,6 +53,11 @@ function Tools({createImage, increaseBorder, changeAspectRatio, editorData, slid
                     <SelectFont
                         changeFont={changeFont}
                         boldFont={boldFont}
+                    />
+
+                    <FontSize
+                        increaseFont={increaseFont}
+                        font_slider={font_slider}
                     />
                             
                     <Model

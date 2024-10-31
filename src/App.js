@@ -3,6 +3,7 @@ import "./Fonts.css"
 import ExifReader from "/node_modules/exifreader/src/exif-reader"
 import Tools from "./components/Tools"
 import { useState } from "react"
+import { AspectRatio } from "@mui/icons-material"
 
 let img = new Image()
 let img_pos_x
@@ -10,7 +11,7 @@ let img_pos_y
 let ratio = 0
 let canvas 
 let border 
-let a_ratio
+let a_ratio = "original"
 let orientation
 let font_size
 let fcolor = "white"
@@ -36,7 +37,13 @@ let tags_list = {
 }
 
 function App() {
-    let [slider, setSlider] = useState({
+    let [border_slider, setBorderSlider] = useState({
+        min: 4,
+        max: 14,
+        step: 2,
+        value: 4
+    })
+    let [font_slider, setFontSlider] = useState({
         min: 4,
         max: 14,
         step: 2,
@@ -97,7 +104,7 @@ function App() {
         setMetaData(mdata)
     }
 
-    function createImage(){      
+    function createImage(){     
         canvas = document.getElementById('canvas')
         let uploader = document.getElementById('uploader')
         let file = uploader.files[0]
@@ -106,12 +113,10 @@ function App() {
         img.src = URL.createObjectURL(file)
 
         img.onload = function(){
-            //setSlider(slider)
+            //setBorderSlider(slider)
             img.width >= img.height ? orientation = 'landscape': orientation = 'portrait'
-            console.log(orientation)
-            border = slider.value*img.width/100
-            ratio = img.height/img.width
-            font_size = Math.floor(border/4)
+            border = border_slider.value*img.width/100
+            changeAspectRatio(a_ratio)
             img_pos_x = border
             img_pos_y = border*ratio
             updateBorder()
@@ -220,30 +225,30 @@ function App() {
 
     const increaseBorder = (e, value) => {        
         //always change the ratio when square and font_size when original
-        slider.value = value
+        border_slider.value = value
         changeAspectRatio(a_ratio)
-        setSlider(slider)                 
+        setBorderSlider(border_slider)                 
     }     
 
     function changeAspectRatio(value){
         a_ratio = value
 
         if (a_ratio == 'square'){
-            border = slider.value*img.width/220
+            border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
-            font_size = (1+(slider.value/100))*border
+            font_size = (1+(border_slider.value/100))*border
             img_pos_x = border
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
-                border = slider.value*img.height/200
+                border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size = (0.7+(slider.value/100))*border
+                font_size = (0.7+(border_slider.value/100))*border
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else {
-            border = slider.value*img.width/100
+            border = border_slider.value*img.width/100
             ratio = img.height/img.width
             font_size = Math.floor(border/4)
             img_pos_x = border
@@ -298,6 +303,10 @@ function App() {
         bold_checked = checked
     }
 
+    function increaseFont(){
+        return
+    }
+
     function addCamModel(checked){
         let form = document.getElementById('form__model')
         form.classList.toggle('unchecked')
@@ -336,12 +345,14 @@ function App() {
                 increaseBorder = {increaseBorder}
                 changeAspectRatio={changeAspectRatio}
                 editorData = {editorData}
-                slider = {slider}
+                border_slider = {border_slider}
                 meta_data = {meta_data}
                 changeFrameColor = {changeFrameColor}
                 changeTxtColor = {changeTxtColor}
                 changeFont ={changeFont}
                 boldFont = {boldFont}
+                increaseFont = {increaseFont}
+                font_slider = {font_slider}
                 addCamModel = {addCamModel}
                 modelPosition={modelPosition}
                 addDate = {addDate}

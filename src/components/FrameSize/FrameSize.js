@@ -9,7 +9,10 @@ function prctgText(value){
     label[0] !== undefined? label[0].innerHTML = value+'%': label = document.getElementsByClassName('MuiSlider-valueLabelLabel')
 }
 
-function FrameSize({increaseBorder, slider}){
+function FrameSize({increaseBorder, border_slider}){
+    /* 
+    NativeSelect = label size and placement 
+    */
     return (
         <div className='frame__size'>
             <FormControl>
@@ -29,12 +32,12 @@ function FrameSize({increaseBorder, slider}){
                 <Slider
                     className='frame__slider'
                     onChangeCommitted={increaseBorder}                    
-                    defaultValue={slider.min}
+                    defaultValue={border_slider.min}
                     getAriaValueText={prctgText}
-                    step={slider.step}
+                    step={border_slider.step}
                     marks
-                    min={slider.min}
-                    max={slider.max}
+                    min={border_slider.min}
+                    max={border_slider.max}
                     valueLabelDisplay="auto"
                 />
 
