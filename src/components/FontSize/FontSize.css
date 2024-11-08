@@ -1,0 +1,10 @@
+.font__size{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.font__slider{
+    margin-top: 24px;
+}

@@ -40,7 +40,6 @@ function FrameSize({increaseBorder, border_slider}){
                     max={border_slider.max}
                     valueLabelDisplay="auto"
                 />
-
             </FormControl>
         </div>
     )

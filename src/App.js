@@ -44,10 +44,10 @@ function App() {
         value: 4
     })
     let [font_slider, setFontSlider] = useState({
-        min: 4,
-        max: 14,
+        min: 1,
+        max: 25,
         step: 2,
-        value: 4
+        value: 1
     })
     //meta_data/mdata to show info in placeholder's input in tools(focal_length, f/#)
     let mdata = {
@@ -142,7 +142,7 @@ function App() {
         ctx.fillRect(0, 0, canvas.width, canvas.height)
         ctx.fillStyle = txtcolor
         ctx.font = `${font_size}px ${font}`
-        console.log(`${font_size}px ${font}`)
+        console.log(`border: ${border} fonte: ${font_size}px ${font}`)
         updateDataPosition()
         ctx.drawImage(img, img_pos_x, img_pos_y)
         updateDate()        
@@ -236,21 +236,21 @@ function App() {
         if (a_ratio == 'square'){
             border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
-            font_size = (1+(border_slider.value/100))*border
+            font_size = (1.5+(font_slider.value/100))*border
             img_pos_x = border
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size = (0.7+(border_slider.value/100))*border
+                font_size = (1.1+(font_slider.value/100))*border
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
-            font_size = Math.floor(border/4)
+            font_size = Math.floor(border/4)*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
         }
@@ -303,7 +303,10 @@ function App() {
         bold_checked = checked
     }
 
-    function increaseFont(){
+    const increaseFont = (e, value) => {
+        font_slider.value = value
+        changeAspectRatio(a_ratio)
+        setFontSlider(font_slider) 
         return
     }
 
