@@ -10,14 +10,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
     max-width: 70dvw;
 }
 
 canvas {
     display: flex;
     max-height: 95dvh;
-    width: 95%;
-    max-width: 50dvw;
+    width: 100%;
+    max-width: 60dvw;
     border-width: 4px;
     border-style: double;
     border-color: white;
@@ -45,7 +46,8 @@ input{
 
     canvas {
         display: flex; 
-        max-height: 95%;
+        height: 90%;
+        max-height: 100%;
         width: auto;
         max-width: 100%;
         border-width: 4px;
