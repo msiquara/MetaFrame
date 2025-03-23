@@ -243,14 +243,14 @@ function App() {
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size = (1.1+(font_slider.value/110))*border
+                font_size = (1.1+(font_slider.value/250))*border
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
             border = border_slider.value*img.height/200
             ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
-            font_size = (1.1+(font_slider.value/150))*border
+            font_size = (1.1+(font_slider.value/200))*border
             img_pos_x = border*ratio
             img_pos_y = border
         } else {
@@ -262,7 +262,7 @@ function App() {
 
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/100
-                font_size = (1.1+(font_slider.value/100))*border
+                font_size = (1.1+(font_slider.value/200))*border
             }
         }
 
