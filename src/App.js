@@ -232,14 +232,14 @@ function App() {
 
     function changeAspectRatio(value){
         a_ratio = value
-
+        
         if (a_ratio == 'square'){
             border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
             font_size = (1.5+(font_slider.value/100))*border
             img_pos_x = border
-            img_pos_y = border*ratio
-
+            img_pos_y = border*ratio            
+            
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
@@ -247,12 +247,24 @@ function App() {
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
+        } 
+        
+        if (a_ratio == '4:5'){
+            border = border_slider.value*img.width/220
+            ratio = 0.8
+            font_size = (1.5+(font_slider.value/100))*border
+            img_pos_x = border*ratio
+            img_pos_y = border
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
             font_size = Math.floor(border/4)*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
+
+            if (orientation == 'portrait'){
+                font_size = (1.1+(font_slider.value/100))*border
+            }
         }
 
         updateBorder()

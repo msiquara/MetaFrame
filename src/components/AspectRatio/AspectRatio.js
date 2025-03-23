@@ -18,6 +18,7 @@ function AspectRatio({ changeAspectRatio }) {
                 >
                     <FormControlLabel value="original" control={<Radio />} label="Original" />
                     <FormControlLabel value="square" control={<Radio />} label="Square" />
+                    <FormControlLabel value="4:5" control={<Radio />} label="4:5 (Instagram)" />
                 </RadioGroup>
             </FormControl>
         </div>
