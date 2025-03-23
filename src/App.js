@@ -249,7 +249,7 @@ function App() {
             } 
         } else if (a_ratio == '4:5'){
             border = border_slider.value*img.height/200
-            ratio = 0.8*(img.height + border)/(border + img.width)
+            ratio = 0.8*(img.height + 2*border)/(2*border + img.width)
             font_size = (1.1+(font_slider.value/100))*border
             img_pos_x = border*ratio
             img_pos_y = border
