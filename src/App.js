@@ -248,9 +248,9 @@ function App() {
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
-            border = border_slider.value*img.height/100
-            ratio = 0.8
-            font_size = (1.5+(font_slider.value/100))*border
+            border = border_slider.value*img.height/200
+            ratio = 0.8*(img.height + border)/(border + img.width)
+            font_size = (1.1+(font_slider.value/100))*border
             img_pos_x = border*ratio
             img_pos_y = border
         } else {
@@ -261,6 +261,7 @@ function App() {
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
+                border = border_slider.value*img.height/100
                 font_size = (1.1+(font_slider.value/100))*border
             }
         }
