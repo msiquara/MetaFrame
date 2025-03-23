@@ -134,7 +134,7 @@ function App() {
         cwidth = canvas.width = img.width + img_pos_x*2
         cheight = canvas.height = img.height + img_pos_y*2
         left_corner[0] = img_pos_x
-        left_corner[1] = cheight - img_pos_y/2 + font_size/3     
+        left_corner[1] = cheight - img_pos_y/2 + font_size/3.1
         right_corner[1] = left_corner[1]
         top_corner[0] = img_pos_x
         top_corner[1] = img_pos_y/2 + font_size/2.5
@@ -243,14 +243,14 @@ function App() {
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size = (1.04+(font_slider.value/200))*border
+                font_size = (1.03+(font_slider.value/200))*border
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
             border = border_slider.value*img.height/200
             ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
-            font_size = (1.04+(font_slider.value/200))*border
+            font_size = (1.03+(font_slider.value/200))*border
             img_pos_x = border*ratio
             img_pos_y = border
         } else {
