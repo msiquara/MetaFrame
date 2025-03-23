@@ -134,7 +134,7 @@ function App() {
         cwidth = canvas.width = img.width + img_pos_x*2
         cheight = canvas.height = img.height + img_pos_y*2
         left_corner[0] = img_pos_x
-        left_corner[1] = cheight - img_pos_y/2 + font_size/2.5      
+        left_corner[1] = cheight - img_pos_y/2 + font_size/2.6      
         right_corner[1] = left_corner[1]
         top_corner[0] = img_pos_x
         top_corner[1] = img_pos_y/2 + font_size/2.5
