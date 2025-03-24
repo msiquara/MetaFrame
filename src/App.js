@@ -166,7 +166,12 @@ function App() {
         let data_text = tags_list.focal_length+', '+tags_list.f_number+', '+tags_list.exposure+'s, '+'ISO '+ tags_list.iso
         let model_text = tags_list.model
 
-        if (!model_checked){            
+        if (!model_checked){          
+            if (a_ratio == '4:5'){
+                let txt_dimension = ctx.measureText(data_text).width
+                left_corner[0] = (cwidth/2) - (txt_dimension/2)
+                ctx.fillText(data_text, left_corner[0], left_corner[1])
+            }  
             ctx.fillText(data_text, left_corner[0], left_corner[1])
             return
         }        
@@ -243,7 +248,7 @@ function App() {
             img_pos_y = border*ratio            
             
             if (orientation == 'portrait'){
-                border = border_slider.value*img.height/200
+                border = border_slider.value*img.height/170
                 ratio = (img.height+2*border-img.width) / (2*border)
                 font_size_default = (1.01+(font_slider.value/200))*border
                 img_pos_x = border*ratio
@@ -321,6 +326,7 @@ function App() {
         font_slider.value = value
         //changeAspectRatio(a_ratio)
         font_size = font_size_default + font_size_default*(font_slider.value/100)
+        updateBorder()
         setFontSlider(font_slider) 
         return
     }
