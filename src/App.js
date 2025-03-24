@@ -118,7 +118,7 @@ function App() {
             img.width >= img.height ? orientation = 'landscape': orientation = 'portrait'
             border = border_slider.value*img.width/100
             changeAspectRatio(a_ratio)
-            font_size = font_size_default
+            font_size_default = font_size
             img_pos_x = border
             img_pos_y = border*ratio
             updateBorder()
