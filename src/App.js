@@ -116,9 +116,9 @@ function App() {
         img.onload = function(){
             //setBorderSlider(slider)
             img.width >= img.height ? orientation = 'landscape': orientation = 'portrait'
-            border = border_slider.value*img.width/100
+            //border = border_slider.value*img.width/100
             changeAspectRatio(a_ratio)
-            font_size_default = font_size
+            //font_size_default = font_size
             img_pos_x = border
             img_pos_y = border*ratio
             updateBorder()
@@ -243,33 +243,33 @@ function App() {
         if (a_ratio == 'square'){
             border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
-            font_size = (1.5+(font_slider.value/100))*border
+            font_size = (1.5+(font_slider.value/100))*(img.width/220)
             img_pos_x = border
             img_pos_y = border*ratio            
             
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size = (1.01+(font_slider.value/200))*border
+                font_size = (1.01+(font_slider.value/200))*(img.height/200)
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
             border = border_slider.value*img.height/170
             ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
-            font_size = (1.01+(font_slider.value/200))*border
+            font_size = (1.01+(font_slider.value/200))*(img.height/170)
             img_pos_x = border*ratio
             img_pos_y = border
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
-            font_size = Math.floor(border/4)*(1+(font_slider.value/100))
+            font_size = Math.floor((img.width/100)/4)*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/100
-                font_size = Math.floor(border/2)*(1+(font_slider.value/100))
+                font_size = Math.floor((img.height/100)/2)*(1+(font_slider.value/100))
             }
         }
 
@@ -324,9 +324,9 @@ function App() {
     //fix this
     const increaseFont = (e, value) => {
         font_slider.value = value
-        //changeAspectRatio(a_ratio)
-        font_size = font_size_default + font_size_default*(font_slider.value/100)
-        updateBorder()
+        changeAspectRatio(a_ratio)
+        //font_size = font_size_default + font_size_default*(font_slider.value/100)
+        //updateBorder()
         setFontSlider(font_slider) 
         return
     }
