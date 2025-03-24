@@ -267,6 +267,8 @@ function App() {
             }
         }
 
+        font_size = font_size_default
+
         updateBorder()
     }
 
