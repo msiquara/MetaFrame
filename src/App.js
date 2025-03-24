@@ -316,6 +316,7 @@ function App() {
         bold_checked = checked
     }
 
+    //fix this
     const increaseFont = (e, value) => {
         font_slider.value = value
         //changeAspectRatio(a_ratio)
