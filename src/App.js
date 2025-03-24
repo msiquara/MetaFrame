@@ -243,33 +243,33 @@ function App() {
         if (a_ratio == 'square'){
             border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
-            font_size_default = (1.5+(font_slider.value/100))*border
+            font_size = (1.5+(font_slider.value/100))*border
             img_pos_x = border
             img_pos_y = border*ratio            
             
             if (orientation == 'portrait'){
-                border = border_slider.value*img.height/170
+                border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
-                font_size_default = (1.01+(font_slider.value/200))*border
+                font_size = (1.01+(font_slider.value/200))*border
                 img_pos_x = border*ratio
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
-            border = border_slider.value*img.height/200
+            border = border_slider.value*img.height/170
             ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
-            font_size_default = (1.01+(font_slider.value/200))*border
+            font_size = (1.01+(font_slider.value/200))*border
             img_pos_x = border*ratio
             img_pos_y = border
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
-            font_size_default = Math.floor(border/4)*(1+(font_slider.value/100))
+            font_size = Math.floor(border/4)*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/100
-                font_size_default = Math.floor(border/2)*(1+(font_slider.value/100))
+                font_size = Math.floor(border/2)*(1+(font_slider.value/100))
             }
         }
 
