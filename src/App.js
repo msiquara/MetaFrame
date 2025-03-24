@@ -14,6 +14,7 @@ let border
 let a_ratio = "original"
 let orientation
 let font_size
+let font_size_default
 let fcolor = "white"
 let txtcolor = "black"
 let cwidth = 0
