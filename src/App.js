@@ -263,13 +263,13 @@ function App() {
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
-            font_size = Math.floor((img.width/100)/4)*(1+(font_slider.value/100))
+            font_size = Math.floor((img.width/100))*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
 
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/100
-                font_size = Math.floor((img.height/100)/2)*(1+(font_slider.value/100))
+                font_size = Math.floor((img.height/100))*(1+(font_slider.value/100))
             }
         }
 
