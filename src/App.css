@@ -17,7 +17,7 @@
 canvas {
     display: flex;
     max-height: 95dvh;
-    width: 100%;
+    width: auto;
     max-width: 60dvw;
     border-width: 4px;
     border-style: double;
