@@ -14,7 +14,6 @@ let border
 let a_ratio = "original"
 let orientation
 let font_size
-let font_size_default
 let fcolor = "white"
 let txtcolor = "black"
 let cwidth = 0
@@ -170,6 +169,7 @@ function App() {
             if (a_ratio == '4:5'){
                 let txt_dimension = ctx.measureText(data_text).width
                 left_corner[0] = (cwidth/2) - (txt_dimension/2)
+                left_corner[1] = cheight - img_pos_x/2 + font_size/3.3
                 ctx.fillText(data_text, left_corner[0], left_corner[1])
             }  
             ctx.fillText(data_text, left_corner[0], left_corner[1])
@@ -239,7 +239,8 @@ function App() {
 
     function changeAspectRatio(value){
         a_ratio = value
-        
+        console.log(orientation)
+
         if (a_ratio == 'square'){
             border = border_slider.value*img.width/220
             ratio = (img.width+2*border-img.height) / (2*border)
@@ -260,6 +261,14 @@ function App() {
             font_size = (1.1+(font_slider.value/100))*(img.height/70)
             img_pos_x = border*ratio
             img_pos_y = border
+
+            if (orientation == 'landscape'){
+                border = border_slider.value*img.width/170
+                ratio = (1.25*(img.width + 2*border)-img.height)/(2*border)
+                font_size = (1.1+(font_slider.value/100))*(img.width/70)
+                img_pos_x = border
+                img_pos_y = border*ratio
+            }
         } else {
             border = border_slider.value*img.width/100
             ratio = img.height/img.width
