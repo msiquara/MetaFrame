@@ -203,7 +203,6 @@ function App() {
 
     function updateDate(){
         let date = (tags_list.date)
-        console.log(date, tags_list)
         date = date.split(':') 
         date[0] = "'"+date[0].slice(2) 
 
