@@ -165,12 +165,16 @@ function App() {
         let data_text = tags_list.focal_length+', '+tags_list.f_number+', '+tags_list.exposure+'s, '+'ISO '+ tags_list.iso
         let model_text = tags_list.model
 
+        //center data position and change it's y pos for landscape pics
         if (!model_checked){          
             if (a_ratio == '4:5'){
                 let txt_dimension = ctx.measureText(data_text).width
-                left_corner[0] = (cwidth/2) - (txt_dimension/2)
-                left_corner[1] = cheight - img_pos_x/2 + font_size/3.3
+                left_corner[0] = (cwidth/2) - (txt_dimension/2)                
                 ctx.fillText(data_text, left_corner[0], left_corner[1])
+                
+                if (orientation == 'landscape') {
+                    left_corner[1] = img.height + img_pos_y + font_size
+                }
             }  
             ctx.fillText(data_text, left_corner[0], left_corner[1])
             return
