@@ -143,8 +143,8 @@ function App() {
         ctx.fillRect(0, 0, canvas.width, canvas.height)
         ctx.fillStyle = txtcolor
         ctx.font = `${font_size}px ${font}`
-        console.log(`border: ${border} fonte: ${font_size}px ${font}`)
         updateDataPosition()
+        console.log(`border: ${border} fonte: ${font_size}px ${font}`)
         ctx.drawImage(img, img_pos_x, img_pos_y)
         updateDate()        
     }
@@ -246,12 +246,13 @@ function App() {
         console.log(orientation)
 
         if (a_ratio == 'square'){
-            border = border_slider.value*img.width/220
-            ratio = (img.width+2*border-img.height) / (2*border)
-            font_size = (1.5+(font_slider.value/100))*(img.width/70)
-            img_pos_x = border
-            img_pos_y = border*ratio            
-            
+            if (orientation == 'landscape'){
+                border = border_slider.value*img.width/220
+                ratio = (img.width+2*border-img.height) / (2*border)
+                font_size = (1.5+(font_slider.value/100))*(img.width/70)
+                img_pos_x = border
+                img_pos_y = border*ratio            
+            }
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/200
                 ratio = (img.height+2*border-img.width) / (2*border)
@@ -260,16 +261,17 @@ function App() {
                 img_pos_y = border
             } 
         } else if (a_ratio == '4:5'){
-            border = border_slider.value*img.height/170
-            ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
-            font_size = (1.1+(font_slider.value/100))*(img.height/70)
-            img_pos_x = border*ratio
-            img_pos_y = border
-
+            if (orientation == 'portrait'){
+                border = border_slider.value*img.height/170
+                ratio = (0.8*(img.height + 2*border)-img.width)/(2*border)
+                font_size = (1.1+(font_slider.value/100))*(img.height/70)
+                img_pos_x = border*ratio
+                img_pos_y = border
+            }
             if (orientation == 'landscape'){
                 border = border_slider.value*img.width/170
                 ratio = (1.25*(img.width + 2*border)-img.height)/(2*border)
-                font_size = (1.1+(font_slider.value/100))*(img.width/70)
+                font_size = (1.2+(font_slider.value/100))*(img.width/70)
                 img_pos_x = border
                 img_pos_y = border*ratio
             }
@@ -279,7 +281,7 @@ function App() {
             font_size = Math.floor((img.width/50))*(1+(font_slider.value/100))
             img_pos_x = border
             img_pos_y = border*ratio
-
+        
             if (orientation == 'portrait'){
                 border = border_slider.value*img.height/100
                 font_size = Math.floor((img.height/50))*(1+(font_slider.value/100))
