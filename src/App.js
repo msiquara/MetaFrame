@@ -170,7 +170,7 @@ function App() {
             if (a_ratio == '4:5'){
                 let txt_dimension = ctx.measureText(data_text).width
                 left_corner[0] = (cwidth/2) - (txt_dimension/2)                
-                ctx.fillText(data_text, left_corner[0], left_corner[1])
+                //ctx.fillText(data_text, left_corner[0], left_corner[1])
                 
                 if (orientation == 'landscape') {
                     left_corner[1] = img.height + img_pos_y + font_size
