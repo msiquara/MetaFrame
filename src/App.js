@@ -270,7 +270,7 @@ function App() {
             if (orientation == 'landscape'){
                 border = border_slider.value*img.width/170
                 ratio = (1.25*(img.width + 2*border)-img.height)/(2*border)
-                font_size = (1.4+(font_slider.value/100))*(img.width/70)
+                font_size = (1.3+(font_slider.value/100))*(img.width/70)
                 img_pos_x = border
                 img_pos_y = border*ratio
             }
